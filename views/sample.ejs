@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <header style="display: flex; align-items: center;gap: 20px;padding:3%;">
+        <!-- Logo -->
+        <div >
+            <img class="mylogo" src="/todolist.jpg" alt="Logo" >
+        </div>
+
+        <!-- Today's Date and Work Icon -->
+        <div style="display: flex;float:left;gap: 20px;">
+            <div >
+                <a href="/"><img src="/today.png" alt="Work" width="15" height="15">Today</a>
+            </div>
+            <div>
+                <a href="/work" ><img src="/work.png" alt="Work" width="15" height="15">Work</a>
+            </div>
+        </div>
+
+        <!-- Login Link -->
+       <!-- <div>
+            <a  href="/login">Login</a>
+        </div>-->
+    </header>
+
+    <div class="top-container">
+        <div class="box">
+            <h1><strong><%= name%></strong></h1>
+        </div>
+    </div>
+    <div class="middle-container">
+        
+        <div class="box">
+            <%(tasks.items).forEach(task=>{ %>
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox"
+                        name="checkbox"
+                        value="<%=task._id%>"   
+                        onChange="this.form.submit()">
+                        <p><%=task.work%></p>
+                    </div>
+                    <input type="hidden" name="list" value="<%= name%>">
+                </form>
+            <%})%>
+        
+            <div class="item">
+                <form action="/" method="post">
+                    <input type="text" name="work" placeholder="New item">
+                    <button class="add" type="submit" name="list" value="<%= name%>">+</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+    <div class="bottom-container"></div>
+
+</body>
+</html>

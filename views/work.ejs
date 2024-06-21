@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <header style="display: flex; align-items: center;gap: 20px;padding:3%;">
+        <!-- Logo -->
+        <div >
+            <img class="mylogo" src="/todolist.jpg" alt="Logo" >
+        </div>
+
+        <!-- Today's Date and Work Icon -->
+        <div style="display: flex;float:left;gap: 20px;">
+            <div >
+                <a href="/"><img src="/today.png" alt="Work" width="15" height="15">Today</a>
+            </div>
+            <div>
+                <a href="/work"><img src="/work.png" alt="Work" width="15" height="15">Work</a>
+            </div>
+        </div>
+
+        <!-- Login Link -->
+        <!--<div>
+            <a class="login-page" href="/login">Login</a>
+        </div> -->
+    </header>
+
+    <div class="top-container">
+        <div class="box">
+            <h1><strong>TO DO LIST</strong></h1>
+        </div>
+    </div>
+    <div class="middle-container">
+        
+        <div class="box">
+            <% workList.forEach(lsItem=>{ %>
+                <div class="item">
+                    <input type="checkbox">
+                    <p><%=lsItem.work%></p>
+                </div>
+            <%})%>
+        
+            <div class="item">
+                <form action="/work" method="post">
+                    <input type="text" name="work" placeholder="New item">
+                    <button class="add" type="submit" name="list">+</button>
+                </form> 
+            </div>
+        </div>
+    </div>
+    <div class="bottom-container"></div>
+
+</body>
+</html>

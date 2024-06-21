@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/submit" method="post">
+        <%if(locals.letters){%>                    <%#here locals is used to check for existence of data which is passed from server%>
+            <h1>your name has <%=letters%> letters</h1>
+       <% }else{%>
+            <h1>type the details.</h1>
+       <% }%>
+        <input type="text" placeholder="first-name" name="fname" required>
+        <input type="text" placeholder="last-name" name="lname" required>
+        <input type="text" placeholder="email" name="email" required>
+        <button type="submit" name="submit">submit</button>
+
+    </form>
+</body>
+</html>
